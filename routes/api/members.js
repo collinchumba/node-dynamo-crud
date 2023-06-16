@@ -38,7 +38,7 @@ router.post('/add', async (req, res) => {
 // api endpoint for updating an existing entry in the table
 router.put('/update/:id', async (req, res) => {
         const member = req.body
-        const  id  = parseInt(req.params.id)
+        const  id  = req.params.id
         member.id = id
         try {
                 const updatedMember = await addMember(member)
@@ -51,11 +51,11 @@ router.put('/update/:id', async (req, res) => {
 
 // api endpoint for deleting an entry in the table
 router.delete('/delete/:id', async (req, res) => {
-        const id  = parseInt(req.params.id)
-        //console.log(req.params.id)
+        const id  = req.params.id
+        console.log(req.params.id)
         try {
                 const deletedMember = await deleteMember(id)
-                res.json(deletedMember)
+                res.json($id +"deleted")
         } catch (error) {
                 console.error(error)
                 res.status(500).json({err: `Something went wrong`})
@@ -64,7 +64,8 @@ router.delete('/delete/:id', async (req, res) => {
 
 // api endpoint for retrieving a table entry by id
 router.get('/:id', async (req, res) => {
-        const id = parseInt(req.params.id)
+        //const id = parseInt(req.params.id)
+        const id = req.params.id
         console.log(req.params.id)
         try {
                 const members = await getMemberById(id)

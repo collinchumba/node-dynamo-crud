@@ -11,7 +11,7 @@ AWS.config.update({
 
 const dynamoClient = new AWS.DynamoDB.DocumentClient()
 
-const TABLE_MEMBERS = "node_users_test"
+const TABLE_MEMBERS = "node_users-_test"
 
 
 // this function is for adding/updating an entry/member in the table
